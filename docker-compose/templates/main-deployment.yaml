@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: main
+  name: {{ .Values.main.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: main
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: main
+    spec:
+      containers:
+        - image: {{ .Values.main.image }}
+          name: {{ .Values.main.image }}
+          ports:
+            - containerPort: {{ .Values.main.containerPort }}
+          resources: {}
+      restartPolicy: Always
+status: {}

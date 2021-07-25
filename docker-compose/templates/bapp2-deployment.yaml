@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: bapp2
+  name: bapp2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: bapp2
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: bapp2
+    spec:
+      containers:
+        - image: lpizarro1964/go-multiple-app2:latest
+          name: bapp2
+          ports:
+            - containerPort: 10002
+          resources: {}
+      restartPolicy: Always
+status: {}

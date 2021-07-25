@@ -1,0 +1,4 @@
+main:
+  name: "main"
+  image: "lpizarro1964/go-multiple-app1:latest"
+  containerPort: 10000

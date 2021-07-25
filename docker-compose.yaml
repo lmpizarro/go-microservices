@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+
+  main:
+    image: lpizarro1964/go-multiple-app1:latest 
+    ports:
+      - "8080:10000"
+    depends_on: 
+      - bapp2
+      - bapp3
+  bapp2:
+    image: lpizarro1964/go-multiple-app2:latest 
+    ports:
+      - "8082:10002"
+  bapp3:
+    image: lpizarro1964/go-multiple-app3:latest
+
+
+

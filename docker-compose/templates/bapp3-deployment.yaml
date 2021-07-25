@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: bapp3
+  name: bapp3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: bapp3
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -c
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: bapp3
+    spec:
+      containers:
+        - image: lpizarro1964/go-multiple-app3:latest
+          name: bapp3
+          resources: {}
+      restartPolicy: Always
+status: {}
